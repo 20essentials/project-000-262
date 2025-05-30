@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ page.title | default: "Domer" }}</title>
+    <meta name="google" content="notranslate" />
+    <link rel="shortcut icon" href="assets/favicon.webp" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      {% assign sections = "front,back" | split: "," %}
+      {% assign sides = "side-top-left,side-top-right,side-bottom-right,side-bottom-left,side-bottom-center" | split: "," %}
+
+      {% for section in sections %}
+        <section class="{{ section }}">
+          <div class="side side-center"></div>
+          {% for side in sides %}
+            <article class="side {{ side }}"></article>
+          {% endfor %}
+        </section>
+      {% endfor %}
+    </div>
+  </body>
+</html>
